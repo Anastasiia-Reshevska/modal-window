@@ -9,6 +9,7 @@
 
 .wrapper button {
     margin: 50px;
+    cursor:pointer;
 }
 
 a {
@@ -73,6 +74,17 @@ button {
     top: 10px;
     right: 10px;
     cursor: pointer;
+    display: block;
+    width: 20px;
+    height: 20px;
+    --weight: 2px;
+    --aa: 1px;
+    --color: #258BFF;
+    border:none;
+    border-radius: 3px;
+    background:
+      linear-gradient(45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa))),
+      linear-gradient(-45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa)));
 }
 
 .popup_form label {

@@ -1,19 +1,23 @@
 (function () {
   const popup = document.querySelector(".popup");
-  const openPopupButtons = document.querySelectorAll(".open-popup");
-  const closePopupButton = document.querySelector(".close-popup");
+  if (!popup) return null;
 
-  openPopupButtons.forEach((button) => {
+  const showPopup = document.querySelectorAll(".open-popup");
+   if (!showPopup || showPopup.length === 0) return null;
+
+  const hide_popup = document.querySelector(".close-popup");
+
+  showPopup.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault();
-      if (!localStorage.getItem("isLocalStorageBtnStorage") && !sessionStorage.getItem("closePopupButton")) 
-        { popup.classList.add("popup-active");
+      if (!localStorage.getItem("isFormSubmit") && !sessionStorage.getItem("hide_popup")) { 
+        popup.classList.add("popup-active");
       }
     });
   });
 
-  closePopupButton.addEventListener("click", () => {
-    sessionStorage.setItem("closePopupButton", 1);
+  hide_popup.addEventListener("click", () => {
+    sessionStorage.setItem("hide_popup", 1);
     closePopup();
   });
 
@@ -33,7 +37,7 @@
     const isLocalStorageBtn = document.querySelector(".btn");
 
     isLocalStorageBtn.addEventListener("click", (e) => {
-      localStorage.setItem("isLocalStorageBtnStorage", 1);
+      localStorage.setItem("isFormSubmit", 1);
       closePopup();
     });
   }
